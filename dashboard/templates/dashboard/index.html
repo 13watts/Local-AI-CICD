@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ project }}</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #101827;
+            color: #e5e7eb;
+            margin: 0;
+            padding: 40px;
+        }
+        main {
+            max-width: 950px;
+            margin: auto;
+        }
+        header {
+            border-bottom: 1px solid #334155;
+            padding-bottom: 20px;
+        }
+        .subtitle {
+            color: #94a3b8;
+        }
+        .panel {
+            background: #1e293b;
+            padding: 24px;
+            margin-top: 24px;
+            border-radius: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 14px 10px;
+            text-align: left;
+            border-bottom: 1px solid #334155;
+        }
+        .online {
+            color: #4ade80;
+        }
+        .pending {
+            color: #fbbf24;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Local AI CI/CD</h1>
+            <p class="subtitle">
+                Automated Python Code Analysis,
+                Modification and Repair
+            </p>
+        </header>
+
+        <section class="panel">
+            <h2>Development Environment</h2>
+            <p>Python: {{ python_version }}</p>
+            <p>Django: {{ django_version }}</p>
+            <p>Operating System: {{ platform }}</p>
+        </section>
+
+        <section class="panel">
+            <h2>System Components</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for name, status in components %}
+                    <tr>
+                        <td>{{ name }}</td>
+                        <td class="{% if status == 'Pending' %}pending{% else %}online{% endif %}">
+                            {{ status }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

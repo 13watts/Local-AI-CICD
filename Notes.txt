@@ -1,0 +1,37 @@
+=========================================
+Set Git path in Power Shell
++++++++++++++++++++++++++++++++++++++++++
+$gitPath = "I:\Program Files\Git\cmd"
+$userPath = [Environment]::GetEnvironmentVariable("Path", "User")
+
+if (($userPath -split ';') -notcontains $gitPath) {
+    [Environment]::SetEnvironmentVariable(
+        "Path",
+        "$userPath;$gitPath",
+        "User"
+    )
+}
+
+$env:Path += ";$gitPath"
+git --version
+=========================================
+First setup of local version management
++++++++++++++++++++++++++++++++++++++++++
+cd I:\
+git clone https://github.com/13watts/Local-AI-CICD.git
+cd Local-AI-CICD
+code .
+=========================================
+Navigate to the repository
++++++++++++++++++++++++++++++++++++++++++
+Set-Location I:\Local-AI-CICD
+=========================================
+Check Python Version
++++++++++++++++++++++++++++++++++++++++++
+py -3.14 --version
+=========================================
+
+
+
+
+

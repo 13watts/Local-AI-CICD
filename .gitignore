@@ -1,0 +1,21 @@
+# Python environments
+.venv/
+__pycache__/
+*.py[cod]
+
+# Django local data
+db.sqlite3
+*.log
+staticfiles/
+
+# Local configuration
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+
+# Local AI files
+models/*.gguf
+workspaces/
